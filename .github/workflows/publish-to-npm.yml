@@ -1,0 +1,33 @@
+name: 🚀 publish to npm
+
+on:
+  release:
+    types: [ published ]
+
+permissions:
+  id-token: write
+
+jobs:
+  release:
+    name: 🚀 Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📚 Checkout
+        uses: actions/checkout@v3
+      - name: 🟢 Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          registry-url: 'https://registry.npmjs.org'
+      - name: 🕵 Yarn install
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: install
+      - name: 🏗 Build
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: build-lib
+      - name: 🚀 Publish
+        run: npm publish --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}

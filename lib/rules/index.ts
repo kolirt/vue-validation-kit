@@ -1,0 +1,7 @@
+export { email } from './email'
+export { includes } from './includes'
+export { is } from './is'
+export { min } from './min'
+export { number } from './number'
+export { required } from './required'
+export { url } from './url'
