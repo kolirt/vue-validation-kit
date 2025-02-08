@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import Test from '@/Test.vue'
+// import Test from '@/Test.vue'
+import Test2 from '@/Test2.vue'
 </script>
 
 <template>
@@ -33,7 +34,7 @@ import Test from '@/Test.vue'
       <h1>Vue3 validation kit</h1>
       <p class="lead">Easy to use and highly customizable Vue3 validation kit</p>
 
-      <Test />
+      <Test2 />
 
       <!--      <pre>{{ loginForm.toArray() }}</pre>-->
 

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { includes } from 'lodash'
 import set from 'lodash/set'
 import get from 'lodash/get'
 
@@ -46,108 +45,9 @@ const scheme = {
 }
 
 function useForm(schemeRules: SchemeRules, data = {}) {
-  const schemeKeys = initSchemeKeys(schemeRules)
-  const schemeObject = initSchemeObject(schemeKeys)
-  const fields = initFields(schemeKeys, data)
 
-  console.log(fields)
 
-  // console.log(schemeKeys)
-  // console.log(schemeObject)
-
-  function initSchemeKeys(schemeRules: SchemeRules): string[] {
-    return Object.keys(schemeRules).sort()
-  }
-
-  function initSchemeObject(schemeKeys: string[]) {
-    const data = {}
-
-    for (const key of schemeKeys) {
-      set(data, key, null)
-    }
-
-    return data
-  }
-
-  function initFields(schemeKeys, data) {
-    const result = {}
-
-    for (const key of schemeKeys) {
-      if (key.includes('.*')) {
-      } else {
-        set(result, key, get(data, key) ?? null)
-      }
-    }
-
-    console.log('=======')
-
-    console.log(schemeKeys)
-    console.log(data)
-    console.log(result)
-
-    return result
-  }
-
-  /*function arrayToNestedObject(paths, value = '') {
-    const result = {};
-
-    paths.forEach(path => {
-      let current = result;
-
-      // Проходимо по кожному ключу в шляху
-      path.forEach((key, index) => {
-        if (index === path.length - 1) {
-          // Якщо це останній елемент, присвоюємо значення
-          current[key] = value;
-        } else {
-          // Якщо об'єкт за цим ключем ще не існує, створюємо його
-          if (!current[key]) {
-            current[key] = {};
-          }
-          current = current[key];
-        }
-      });
-    });
-
-    return result;
-  }*/
-
-  /*function initFields(rules: SchemeRules) {
-    console.log(rules)
-
-    const fields = {}
-
-    const keys = Object.keys(rules)
-
-    const qwe = []
-
-    for (const key of keys)  {
-      if (key.includes('.*')) {
-
-      } else {
-        const path = key.split('.')
-
-        qwe.push(path)
-        // console.log(path)
-
-        // console.log(path.reduceRight((acc, key) => ({ [key]: acc }), null))
-
-      }
-    }
-
-    console.log(arrayToNestedObject(qwe))
-
-    // console.log(fields)
-
-    return fields
-  }*/
-
-  function fill() {}
-
-  return {
-    rules,
-    fill
-  }
+  return {  }
 }
 
 const form = useForm(rules, {
