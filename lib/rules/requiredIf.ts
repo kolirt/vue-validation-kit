@@ -1,9 +1,9 @@
 import type { Rule } from '../types'
 
 export function requiredIf(): Rule {
-// path: string,
-// mode: 'in' | 'notIn' | 'eq' | 'less' | 'greater' | 'between' | 'notBetween',
-// value: any
+  // path: string,
+  // mode: 'in' | 'notIn' | 'eq' | 'less' | 'greater' | 'between' | 'notBetween',
+  // value: any
   return {
     name: 'required',
     validate: (/*{ value: fieldValue }*/) => {
