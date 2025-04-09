@@ -11,7 +11,7 @@ A lightweight, Laravel-inspired validation package for Vue 3. Effortlessly valid
 - [Getting started](#getting-started)
   - [Advantages of using this solution](#advantages-of-using-this-solution)
     - [🔥 Key benefits](#-key-benefits)
-    - [🚀 How It Works](#-how-it-works)
+    - [🚀 Features](#-features)
   - [Installation](#installation)
   - [Setup](#setup)
 - [Usage](#usage)
@@ -30,7 +30,7 @@ A lightweight, Laravel-inspired validation package for Vue 3. Effortlessly valid
 
 ## Advantages of using this solution
 
-`@kolirt/vue-validation-kit` is a convenient and powerful package for data validation in Vue.js applications. It provides a simple and intuitive solution for form validation, inspired by the validation system of the Laravel framework, making it particularly user-friendly for developers familiar with this technology. The package allows seamless integration of validation into projects while keeping the code clean and structured.
+`vue-validation-kit` is a convenient and powerful package for data validation in Vue.js applications. It provides a simple and intuitive solution for form validation, inspired by the validation system of the Laravel framework, making it particularly user-friendly for developers familiar with this technology. The package allows seamless integration of validation into projects while keeping the code clean and structured.
 
 
 ### 🔥 Key benefits:
@@ -53,12 +53,12 @@ With vue-validation-kit, you can focus on your application’s logic rather than
 
 ## Installation
 
-Use yarn or npm to install the package `@kolirt/vue-validation-kit`.
+Use yarn or npm to install the package `vue-validation-kit`.
 
 ```bash
-npm install --save @kolirt/vue-validation-kit
+npm install --save vue-validation-kit
 
-yarn add @kolirt/vue-validation-kit
+yarn add vue-validation-kit
 ```
 
 ## Setup
@@ -67,8 +67,8 @@ Add dependencies to your `main.ts`:
 
 ```javascript
 import { createApp } from 'vue'
-import { createValidation } from '@kolirt/vue-validation-kit'
-import { en } from '@kolirt/vue-validation-kit/localization'
+import { createValidation } from 'vue-validation-kit'
+import { en } from 'vue-validation-kit/localization'
 
 const app = createApp({ ... })
 
@@ -84,6 +84,11 @@ app.mount('#app')
 
 ## Basic usage
 
+```vue
+<script setup lang="ts">
+  
+</script>
+```
 
 
 

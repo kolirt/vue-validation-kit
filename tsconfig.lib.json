@@ -14,5 +14,6 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true
   },
+  "include": ["lib/**/*"],
   "exclude": ["test", "demo", "node_modules", "examples"]
 }

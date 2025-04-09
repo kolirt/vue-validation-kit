@@ -2,7 +2,7 @@
 import { notify } from '@kyvg/vue3-notification'
 import { ref } from 'vue'
 
-import { type Options, messages, locale, setLocale, setMessages, useForm, type Messages } from '../lib'
+import { type Messages, type Options, locale, messages, setLocale, setMessages, useForm } from '../lib'
 import ValidationField from '../lib/components/ValidationField.vue'
 import ValidationForm from '../lib/components/ValidationForm.vue'
 import * as Rules from '../lib/rules'

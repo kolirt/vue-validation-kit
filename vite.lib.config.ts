@@ -11,7 +11,7 @@ export default defineConfig({
     vue(),
     dts({
       tsConfigFilePath: './tsconfig.lib.json',
-      rollupTypes: true
+      include: ['lib/index.ts', 'lib/localization/index.ts', 'lib/rules/index.ts']
     }),
     eslint()
   ],

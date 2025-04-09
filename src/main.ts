@@ -10,6 +10,7 @@ import en from './localization/en'
 const app = createApp(App)
 
 app.use(Notifications)
+
 app.use(
   createValidation({
     locale: 'en',
