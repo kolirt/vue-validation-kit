@@ -17,10 +17,12 @@ export default defineConfig({
   ],
   build: {
     lib: {
-      name: 'vue-validation-kit',
-      formats: ['es', 'umd'],
-      entry: resolve(__dirname, 'lib/index.ts'),
-      fileName: 'vue-validation-kit'
+      formats: ['es', 'cjs'],
+      entry: {
+        index: resolve(__dirname, 'lib/index.ts'),
+        'localization/index': resolve(__dirname, 'lib/localization/index.ts'),
+        'rules/index': resolve(__dirname, 'lib/rules/index.ts')
+      }
     },
     emptyOutDir: true,
     rollupOptions: {

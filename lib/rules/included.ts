@@ -1,9 +1,9 @@
 import type { Rule } from '../types'
 
-export function includes(value: unknown[]): Rule {
+export function included(value: unknown[]): Rule {
   return {
-    name: 'includes',
-    validate: (fieldValue: unknown) => {
+    name: 'included',
+    validate: ({ value: fieldValue }) => {
       return value.includes(fieldValue)
     },
     options: { value }

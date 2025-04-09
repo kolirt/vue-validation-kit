@@ -4,12 +4,12 @@ import { isEmptyArray, isEmptyString, isFalse, isNullOrUndefined } from '../util
 export function required(): Rule {
   return {
     name: 'required',
-    validate: (fieldValue: unknown) => {
-      if (isNullOrUndefined(fieldValue) || isEmptyArray(fieldValue) || isFalse(fieldValue)) {
+    validate: ({ value }) => {
+      if (isNullOrUndefined(value) || isEmptyArray(value) || isFalse(value)) {
         return false
       }
 
-      return !isEmptyString(fieldValue)
+      return !isEmptyString(value)
     }
   }
 }

@@ -1,15 +1,15 @@
 import type { Rule } from '../types'
 
-export function min(length: number): Rule {
+export function max(length: number): Rule {
   return {
-    name: 'min',
+    name: 'max',
     validate: ({ value }) => {
       if (Array.isArray(value)) {
-        return value.length >= length
+        return value.length <= length
       }
 
       if (typeof value === 'string') {
-        return value.length >= length
+        return String(value).length <= length
       }
 
       return false
