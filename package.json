@@ -1,8 +1,8 @@
 {
   "name": "vue-validation-kit",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "type": "module",
-  "description": "Simple Vue3 validation kit",
+  "description": "A lightweight, Laravel-inspired validation package for Vue 3",
   "author": "kolirt",
   "private": false,
   "license": "MIT",
@@ -10,12 +10,9 @@
     "vue",
     "vue3",
     "vuejs",
-    "dialog",
-    "alert",
-    "modal",
-    "vue-js-modal",
-    "vue-validation-kit",
-    "popup"
+    "validation",
+    "validator",
+    "form"
   ],
   "scripts": {
     "build-lib": "run-p type-check-lib build-only-lib",
