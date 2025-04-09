@@ -53,12 +53,12 @@ With vue-validation-kit, you can focus on your application’s logic rather than
 
 ## Installation
 
-Use yarn or npm to install the package `vue-validation-kit`.
+Use yarn or npm to install the package `@kolirt/vue-validation-kit`.
 
 ```bash
-npm install --save vue-validation-kit
+npm install --save @kolirt/vue-validation-kit
 
-yarn add vue-validation-kit
+yarn add @kolirt/vue-validation-kit
 ```
 
 ## Setup
@@ -67,8 +67,8 @@ Add dependencies to your `main.ts`:
 
 ```javascript
 import { createApp } from 'vue'
-import { createValidation } from 'vue-validation-kit'
-import { en } from 'vue-validation-kit/localization'
+import { createValidation } from '@kolirt/vue-validation-kit'
+import { en } from '@kolirt/vue-validation-kit/localization'
 
 const app = createApp({ ... })
 
