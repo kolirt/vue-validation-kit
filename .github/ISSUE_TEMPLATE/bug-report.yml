@@ -6,7 +6,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Before reporting a bug, please make sure that you have read through our [documentation](https://github.com/kolirt/vue-validation-kit?tab=readme-ov-file#simple-vue3-modal-package) and existing [issues](https://github.com/kolirt/vue-validation-kit/issues).
+        Before reporting a bug, please make sure that you have read through our [documentation](https://github.com/kolirt/vue-validation-kit) and existing [issues](https://github.com/kolirt/vue-validation-kit/issues).
   - type: input
     id: version
     attributes:
