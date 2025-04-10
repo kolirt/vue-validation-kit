@@ -10,8 +10,10 @@ export default defineConfig({
   plugins: [
     vue(),
     dts({
-      tsConfigFilePath: './tsconfig.lib.json',
-      include: ['lib/index.ts', 'lib/localization/index.ts', 'lib/rules/index.ts']
+      include: ['lib'],
+      entryRoot: 'lib',
+      rollupTypes: false,
+      tsconfigPath: resolve(__dirname, 'tsconfig.lib.json')
     }),
     eslint()
   ],

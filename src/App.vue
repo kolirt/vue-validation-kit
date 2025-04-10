@@ -2,10 +2,18 @@
 import { notify } from '@kyvg/vue3-notification'
 import { ref } from 'vue'
 
-import { type Messages, type Options, locale, messages, setLocale, setMessages, useForm } from '../lib'
-import ValidationField from '../lib/components/ValidationField.vue'
-import ValidationForm from '../lib/components/ValidationForm.vue'
-import * as Rules from '../lib/rules'
+import {
+  type Messages,
+  type Options,
+  ValidationField,
+  ValidationForm,
+  locale,
+  messages,
+  setLocale,
+  setMessages,
+  useForm
+} from '../lib'
+import { min as minRule, required as requiredRule, sameAs as sameAsRule } from '../lib/rules'
 
 const localization = import.meta.glob('./localization/*', { import: 'default' })
 
@@ -52,24 +60,24 @@ const form = useForm<Payload>(
     permissions: []
   },
   {
-    name: [Rules.required(), Rules.min(3)],
-    email: [Rules.required(), Rules.min(2)],
+    name: [requiredRule(), minRule(3)],
+    email: [requiredRule(), minRule(2)],
 
-    password: [Rules.required(), Rules.min(6)],
-    password_confirmation: [Rules.required(), Rules.min(6), Rules.sameAs('password')],
+    password: [requiredRule(), minRule(6)],
+    password_confirmation: [requiredRule(), minRule(6), sameAsRule('password')],
 
-    'city.name': [Rules.required()],
-    'city.lat': [Rules.required()],
-    'city.lon': [Rules.required()],
+    'city.name': [requiredRule()],
+    'city.lat': [requiredRule()],
+    'city.lon': [requiredRule()],
 
-    books: [Rules.required(), Rules.min(1)],
-    'books.*.title': [Rules.required(), Rules.min(2)],
-    'books.*.author.name': [Rules.required(), Rules.min(3)],
-    'books.*.author.pages': [Rules.required(), Rules.min(1)],
-    'books.*.author.pages.*': [Rules.required()],
+    books: [requiredRule(), minRule(1)],
+    'books.*.title': [requiredRule(), minRule(2)],
+    'books.*.author.name': [requiredRule(), minRule(3)],
+    'books.*.author.pages': [requiredRule(), minRule(1)],
+    'books.*.author.pages.*': [requiredRule()],
 
-    permissions: [Rules.required()],
-    'permissions.*': [Rules.required()]
+    permissions: [requiredRule()],
+    'permissions.*': [requiredRule()]
   }
 )
 
