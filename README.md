@@ -15,7 +15,9 @@ A lightweight, Laravel-inspired validation package for Vue 3. Effortlessly valid
   - [Installation](#installation)
   - [Setup](#setup)
 - [Usage](#usage)
-    - [Basic usage](#basic-usage)
+    - [Validate field](#validate-field)
+    - [Validate object](#validate-object)
+- [Rules](#rules)
 - [Demo](#demo)
 - [Example](#example)
 - [Faq](#faq)
@@ -82,14 +84,115 @@ app.mount('#app')
 
 # Usage
 
-## Basic usage
+## Validate field
 
 ```vue
 <script setup lang="ts">
+import { useForm, ValidationField, ValidationForm } from '@kolirt/vue-validation-kit'
+import { required, min } from '@kolirt/vue-validation-kit/rules'
   
+type Payload = {
+  email: string
+}
+
+const form = useForm<Payload>(
+  {
+    name: null,
+  },
+  {
+    name: [required(), min(3)]
+  }
+)
+
+function send() {
+  form.validate()
+    .then(() => {
+      console.log('Success validation')
+    })
+    .catch(() => {
+      console.log('Error validation')
+    })
+}
 </script>
+
+<template>
+  <ValidationForm @submit="send" :form="form">
+    <ValidationField name="name" v-slot="{ fieldName, firstError }">
+      <label :for="fieldName">{{ fieldName }}</label>
+      <input :id="fieldName" :name="fieldName" type="text" v-model="form.payload.name"/>
+      <div v-if="firstError">{{ firstError }}</div>
+    </ValidationField>
+  </ValidationForm>
+</template>
 ```
 
+## Validate object
+
+```vue
+<script setup lang="ts">
+import { useForm, ValidationField, ValidationForm } from '@kolirt/vue-validation-kit'
+import { required, min } from '@kolirt/vue-validation-kit/rules'
+  
+type Payload = {
+  city: {
+    name: string
+    lat: number
+    lon: number
+  }
+}
+
+const form = useForm<Payload>(
+  {
+    city: {
+      name: null,
+      population: null,
+    }
+  },
+  {
+    'city.name': [required(), min(3)],
+    'city.population': [required()]
+  }
+)
+
+function send() {
+  form.validate()
+    .then(() => {
+      console.log('Success validation')
+    })
+    .catch(() => {
+      console.log('Error validation')
+    })
+}
+</script>
+
+<template>
+  <ValidationForm @submit="send" :form="form">
+    <ValidationField name="city.name" v-slot="{ fieldName, firstError }">
+      <label :for="fieldName">{{ fieldName }}</label>
+      <input :id="fieldName" :name="fieldName" type="text" v-model="form.payload.city.name"/>
+      <div v-if="firstError">{{ firstError }}</div>
+    </ValidationField>
+
+    <ValidationField name="city.population" v-slot="{ fieldName, firstError }">
+      <label :for="fieldName">{{ fieldName }}</label>
+      <input :id="fieldName" :name="fieldName" type="text" v-model="form.payload.city.population"/>
+      <div v-if="firstError">{{ firstError }}</div>
+    </ValidationField>
+  </ValidationForm>
+</template>
+```
+
+
+# Rules
+
+- [included](./lib/rules/included.ts)
+- [index](./lib/rules/index.ts)
+- [is](./lib/rules/is.ts)
+- [max](./lib/rules/max.ts)
+- [min](./lib/rules/min.ts)
+- [required](./lib/rules/required.ts)
+- [sameAs](./lib/rules/sameAs.ts)
+- [url](./lib/rules/url.ts)
 
 
 # Demo
