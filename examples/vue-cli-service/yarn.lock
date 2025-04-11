@@ -954,10 +954,10 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
-"@kolirt/vue-validation-kit@^1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@kolirt/vue-validation-kit/-/vue-validation-kit-1.0.2.tgz#e1560d9b73124fdb78d30ba7eb8958319c9c5e80"
-  integrity sha512-Mp0HdtSk9Kerc4fmPpWmTZ/97bzDcbhH0Hp6KjEFDGQ9hC9cGVZeGArqEAohdXxoeI1dq5A2lVDAyD6dv/ge0A==
+"@kolirt/vue-validation-kit@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@kolirt/vue-validation-kit/-/vue-validation-kit-1.0.3.tgz#b7f448b5a25c3ec8bf521b4769bd43a8b9b1ec3c"
+  integrity sha512-Yv7Zt5j27ogUOg4Qt0hKXKfho+Cp5Sb0HiMXLa/024XdD25AFXSxxZMqMRGUrlF1KbirCwQv1JgfofYnQFli7A==
   dependencies:
     "@kyvg/vue3-notification" "^2.9.1"
     bootstrap "5.3.0"

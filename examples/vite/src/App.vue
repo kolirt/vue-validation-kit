@@ -13,7 +13,7 @@ import {
   ValidationField,
   ValidationForm
 } from '@kolirt/vue-validation-kit'
-import { required as requiredRule, min as minRule, sameAs as sameAsRule } from '@kolirt/vue-validation-kit/rules'
+import { required as requiredRule, min as minRule, same as sameRule } from '@kolirt/vue-validation-kit/rules'
 
 const localization = import.meta.glob('./localization/*', { import: 'default' })
 
@@ -64,7 +64,7 @@ const form = useForm<Payload>(
     email: [requiredRule(), minRule(2)],
 
     password: [requiredRule(), minRule(6)],
-    password_confirmation: [requiredRule(), minRule(6), sameAsRule('password')],
+    password_confirmation: [requiredRule(), minRule(6), sameRule('password')],
 
     'city.name': [requiredRule()],
     'city.lat': [requiredRule()],

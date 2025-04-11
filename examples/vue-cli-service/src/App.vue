@@ -11,7 +11,7 @@ import {
   ValidationField,
   ValidationForm
 } from '@kolirt/vue-validation-kit'
-import { min as minRule, required as requiredRule, sameAs as sameAsRule } from '@kolirt/vue-validation-kit/rules'
+import { min as minRule, required as requiredRule, same as sameRule } from '@kolirt/vue-validation-kit/rules'
 
 const form = useForm(
   {
@@ -40,7 +40,7 @@ const form = useForm(
     email: [requiredRule(), minRule(2)],
 
     password: [requiredRule(), minRule(6)],
-    password_confirmation: [requiredRule(), minRule(6), sameAsRule('password')],
+    password_confirmation: [requiredRule(), minRule(6), sameRule('password')],
 
     'city.name': [requiredRule()],
     'city.lat': [requiredRule()],
