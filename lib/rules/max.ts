@@ -1,19 +1,12 @@
 import type { Rule } from '../types'
+import { isEmpty, isMax } from '../utils'
 
-export function max(length: number): Rule {
+export function max(threshold: number): Rule {
   return {
     name: 'max',
     validate: ({ value }) => {
-      if (Array.isArray(value)) {
-        return value.length <= length
-      }
-
-      if (typeof value === 'string') {
-        return String(value).length <= length
-      }
-
-      return false
+      return isEmpty(value) || isMax(value, threshold)
     },
-    options: { length }
+    options: { threshold }
   }
 }

@@ -1,11 +1,12 @@
 import type { Rule } from '../types'
+import { isEmpty, isIncluded } from '../utils'
 
-export function included(value: unknown[]): Rule {
+export function included(allowedValues: unknown[]): Rule {
   return {
     name: 'included',
-    validate: ({ value: fieldValue }) => {
-      return value.includes(fieldValue)
+    validate: ({ value }) => {
+      return isEmpty(value) || isIncluded(value, allowedValues)
     },
-    options: { value }
+    options: { allowedValues }
   }
 }

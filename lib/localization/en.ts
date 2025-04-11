@@ -7,7 +7,7 @@ const messages: Messages = {
     is: ({ field, options }) => `The ${field} is not equal to ${options.value}`,
     min: ({ field, options }) => `The ${field} field must be at least ${options.length}`,
     required: ({ field }) => `The ${field} is required`,
-    sameAs: ({ field, options }) => `The ${field} is ${options.label}`
+    sameAs: ({ field, options }) => `The ${field} is not same as ${options.label ?? options.path}`
   },
   attributes: {
     email: 'Email',

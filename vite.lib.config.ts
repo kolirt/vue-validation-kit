@@ -23,7 +23,8 @@ export default defineConfig({
       entry: {
         index: resolve(__dirname, 'lib/index.ts'),
         'localization/index': resolve(__dirname, 'lib/localization/index.ts'),
-        'rules/index': resolve(__dirname, 'lib/rules/index.ts')
+        'rules/index': resolve(__dirname, 'lib/rules/index.ts'),
+        'utils/index': resolve(__dirname, 'lib/utils/index.ts')
       }
     },
     emptyOutDir: true,

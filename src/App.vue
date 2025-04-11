@@ -13,7 +13,7 @@ import {
   setMessages,
   useForm
 } from '../lib'
-import { min as minRule, required as requiredRule, sameAs as sameAsRule } from '../lib/rules'
+import { min as minRule, required as requiredRule, same as sameRule } from '../lib/rules'
 
 const localization = import.meta.glob('./localization/*', { import: 'default' })
 
@@ -64,7 +64,7 @@ const form = useForm<Payload>(
     email: [requiredRule(), minRule(2)],
 
     password: [requiredRule(), minRule(6)],
-    password_confirmation: [requiredRule(), minRule(6), sameAsRule('password')],
+    password_confirmation: [requiredRule(), minRule(6), sameRule('password')],
 
     'city.name': [requiredRule()],
     'city.lat': [requiredRule()],

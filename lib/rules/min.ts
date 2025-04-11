@@ -1,19 +1,12 @@
 import type { Rule } from '../types'
+import { isEmpty, isMin } from '../utils'
 
-export function min(length: number): Rule {
+export function min(threshold: number): Rule {
   return {
     name: 'min',
     validate: ({ value }) => {
-      if (Array.isArray(value)) {
-        return value.length >= length
-      }
-
-      if (typeof value === 'string') {
-        return value.length >= length
-      }
-
-      return false
+      return isEmpty(value) || isMin(value, threshold)
     },
-    options: { length }
+    options: { threshold }
   }
 }

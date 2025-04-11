@@ -18,6 +18,13 @@ A lightweight, Laravel-inspired validation package for Vue 3. Effortlessly valid
     - [Validate field](#validate-field)
     - [Validate object](#validate-object)
 - [Rules](#rules)
+  - [Presence and requirement](#presence-and-requirement)
+  - [Value comparison](#value-comparison)
+  - [Size and range](#size-and-range)
+  - [Data types](#data-types)
+  - [Special formats](#special-formats)
+  - [List membership](#list-membership)
+  - [Acceptance state](#acceptance-state)
 - [Demo](#demo)
 - [Example](#example)
 - [Faq](#faq)
@@ -185,14 +192,43 @@ function send() {
 
 # Rules
 
-- [included](./lib/rules/included.ts)
-- [index](./lib/rules/index.ts)
-- [is](./lib/rules/is.ts)
-- [max](./lib/rules/max.ts)
-- [min](./lib/rules/min.ts)
-- [required](./lib/rules/required.ts)
-- [sameAs](./lib/rules/sameAs.ts)
-- [url](./lib/rules/url.ts)
+## Presence and requirement
+### required
+### requiredIf
+### requiredIfAccepted
+### requiredIfDeclined
+
+## Value comparison
+### confirmed
+### same
+### is
+### greaterThan
+### greaterThanOrEqual
+### lessThan
+### lessThanOrEqual
+
+## Size and range
+### between
+### max
+### min
+
+## Data types
+### boolean
+### decimal
+### integer
+
+## Special formats
+### email
+### regex
+### url
+
+## List membership
+### included 
+### notIncluded
+
+## Acceptance state
+### accepted
+### declined
 
 
 # Demo

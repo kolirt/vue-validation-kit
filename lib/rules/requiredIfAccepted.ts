@@ -1,21 +1,21 @@
 import get from 'lodash/get'
 
 import type { Rule } from '../types'
-import { compare, isEmpty } from '../utils'
+import { isAccepted, isEmpty } from '../utils'
 
 // TODO: process user.*.value path
-export function requiredIf(path: string, value: unknown, mode: '==' | '>=' | '>' | '<=' | '<' = '=='): Rule {
+export function requiredIfAccepted(path: string): Rule {
   return {
-    name: 'requiredIf',
+    name: 'requiredIfAccepted',
     validate: ({ value: fieldValue, payload }) => {
       const pathValue = get(payload, path)
 
-      if (compare(pathValue, value, mode)) {
+      if (isAccepted(pathValue)) {
         return !isEmpty(fieldValue)
       }
 
       return true
     },
-    options: { path, value, mode }
+    options: { path }
   }
 }
