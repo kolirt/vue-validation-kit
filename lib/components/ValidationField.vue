@@ -26,8 +26,8 @@ const props = withDefaults(
   }
 )
 
-const formConfig = inject<ComputedRef<FormConfig>>('formConfig')
-const formErrors = inject<Errors>('formErrors')
+const formConfig = inject<ComputedRef<FormConfig> | null >('formConfig', null)
+const formErrors = inject<Errors | null>('formErrors', null)
 
 const errors = computed(() => {
   return (formErrors?.[props.name] ?? []).map((error) => getMessage(error, locale.value))
