@@ -5,7 +5,7 @@ const messages: Messages = {
     _default: ({ field }) => `The ${field} value is not valid`,
     included: ({ field }) => `The ${field} field must be a valid value`,
     is: ({ field, options }) => `The ${field} is not equal to ${options.value}`,
-    min: ({ field, options }) => `The ${field} field must be at least ${options.length}`,
+    min: ({ field, options }) => `The ${field} field must be at least ${options.threshold}`,
     required: ({ field }) => `The ${field} is required`,
     sameAs: ({ field, options }) => `The ${field} is not same as ${options.label ?? options.path}`
   },
