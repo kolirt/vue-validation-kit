@@ -1,15 +1,7 @@
 import get from 'lodash/get'
 import { computed, reactive, readonly, toRaw, watch } from 'vue'
 
-import type { Errors, Options, Rule, Rules } from './types'
-
-type AddNullToValues<T> = {
-  [K in keyof T]: T[K] extends any[]
-    ? (T[K] extends (infer U)[] ? AddNullToValues<U> | null : never)[]
-    : T[K] extends object
-      ? AddNullToValues<T[K]> | null
-      : T[K] | null;
-};
+import type { AddNullToValues, Errors, Options, Rule, Rules } from './types'
 
 function useForm<T extends object>(payload: AddNullToValues<T>, rules: Rules) {
   const payloadData = reactive<AddNullToValues<T>>(structuredClone(payload))

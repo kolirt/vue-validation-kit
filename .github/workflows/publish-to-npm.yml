@@ -17,7 +17,7 @@ jobs:
       - name: 🟢 Node
         uses: actions/setup-node@v3
         with:
-          node-version: 20
+          node-version: 22.21.1
           registry-url: 'https://registry.npmjs.org'
       - name: 🕵 Yarn install
         uses: borales/actions-yarn@v4

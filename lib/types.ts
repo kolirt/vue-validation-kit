@@ -62,4 +62,12 @@ type FormConfig = {
   debounceDelay: Options['debounceDelay']
 }
 
-export type { Rule, Rules, Error, Errors, AsTag, ValidateEventDetail, Messages, Options, FormConfig }
+type AddNullToValues<T> = {
+  [K in keyof T]: T[K] extends any[]
+    ? (T[K] extends (infer U)[] ? AddNullToValues<U> | null : never)[]
+    : T[K] extends object
+      ? AddNullToValues<T[K]> | null
+      : T[K] | null
+}
+
+export type { Rule, Rules, Error, Errors, AsTag, ValidateEventDetail, Messages, Options, FormConfig, AddNullToValues }

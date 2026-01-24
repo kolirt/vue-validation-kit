@@ -26,7 +26,7 @@ const props = withDefaults(
   }
 )
 
-const formConfig = inject<ComputedRef<FormConfig> | null >('formConfig', null)
+const formConfig = inject<ComputedRef<FormConfig> | null>('formConfig', null)
 const formErrors = inject<Errors | null>('formErrors', null)
 
 const errors = computed(() => {

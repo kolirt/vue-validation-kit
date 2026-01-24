@@ -1,6 +1,6 @@
 export { default as ValidationForm } from './components/ValidationForm.vue'
 export { default as ValidationField } from './components/ValidationField.vue'
-export type { Messages, Rule, Options } from './types'
+export type { Messages, Rule, Options, AddNullToValues } from './types'
 export { locale, messages, setLocale, setMessages } from './options'
 export { createValidation } from './plugin'
 export { useForm } from './useForm'
