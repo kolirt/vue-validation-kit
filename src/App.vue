@@ -20,6 +20,7 @@ const localization = import.meta.glob('./localization/*', { import: 'default' })
 type Payload = {
   name: string
   email: string
+  type: string
   password: string
   password_confirmation: string
   city: {
@@ -41,6 +42,7 @@ const form = useForm<Payload>(
   {
     name: null,
     email: null,
+    type: null,
     password: null,
     password_confirmation: null,
     city: {
@@ -62,6 +64,7 @@ const form = useForm<Payload>(
   {
     name: [requiredRule(), minRule(3)],
     email: [requiredRule(), minRule(2)],
+    type: [requiredRule()],
 
     password: [requiredRule(), minRule(6)],
     password_confirmation: [requiredRule(), minRule(6), sameRule('password')],
@@ -285,7 +288,7 @@ async function setLanguage(lang: string) {
               </ValidationField>
 
               <ValidationField name="email" v-slot="{ fieldName, firstError }" class="mb-3">
-                <label for="fieldName" class="form-label">{{ fieldName }}</label>
+                <label :for="fieldName" class="form-label">{{ fieldName }}</label>
                 <input
                   :id="fieldName"
                   :name="fieldName"
@@ -294,6 +297,23 @@ async function setLanguage(lang: string) {
                   class="form-control"
                   v-model="form.payload.email"
                 />
+                <div v-if="firstError" class="invalid-feedback">{{ firstError }}</div>
+              </ValidationField>
+
+              <ValidationField name="type" v-slot="{ fieldName, firstError }" class="mb-3">
+                <label :for="fieldName" class="form-label">{{ fieldName }}</label>
+                <select
+                  :id="fieldName"
+                  :name="fieldName"
+                  :class="{ 'is-invalid': firstError }"
+                  class="form-select"
+                  v-model="form.payload.type"
+                >
+                  <option selected>Open this select menu</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
                 <div v-if="firstError" class="invalid-feedback">{{ firstError }}</div>
               </ValidationField>
 

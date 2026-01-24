@@ -1,10 +1,9 @@
 {
   "name": "@kolirt/vue-validation-kit",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "type": "module",
   "description": "A lightweight, Laravel-inspired validation package for Vue 3",
   "author": "kolirt",
-  "private": false,
   "license": "MIT",
   "keywords": [
     "vue",

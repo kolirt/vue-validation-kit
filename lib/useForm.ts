@@ -1,7 +1,10 @@
-import get from 'lodash/get'
-import { computed, reactive, readonly, toRaw, watch } from 'vue'
+import get from 'lodash/get';
+import { computed, reactive, readonly, toRaw, watch } from 'vue';
 
-import type { AddNullToValues, Errors, Options, Rule, Rules } from './types'
+
+
+import type { AddNullToValues, Errors, Options, Rule, Rules } from './types';
+
 
 function useForm<T extends object>(payload: AddNullToValues<T>, rules: Rules) {
   const payloadData = reactive<AddNullToValues<T>>(structuredClone(payload))
@@ -174,6 +177,7 @@ function useForm<T extends object>(payload: AddNullToValues<T>, rules: Rules) {
    * @returns A promise that resolves to true if validation passes, or false if there are errors.
    */
   async function validate(name?: string) {
+    console.log('validate', name)
     return new Promise<T>((resolve, reject) => {
       const pathsToValidation = name
         ? allValidationPaths.value.filter((item) => item[0] === name)
