@@ -177,7 +177,6 @@ function useForm<T extends object>(payload: AddNullToValues<T>, rules: Rules) {
    * @returns A promise that resolves to true if validation passes, or false if there are errors.
    */
   async function validate(name?: string) {
-    console.log('validate', name)
     return new Promise<T>((resolve, reject) => {
       const pathsToValidation = name
         ? allValidationPaths.value.filter((item) => item[0] === name)
