@@ -1,13 +1,11 @@
-import get from 'lodash/get';
-import { computed, reactive, readonly, toRaw, watch } from 'vue';
+import cloneDeep from 'lodash/cloneDeep'
+import get from 'lodash/get'
+import { computed, reactive, readonly, toRaw, watch } from 'vue'
 
-
-
-import type { AddNullToValues, Errors, Options, Rule, Rules } from './types';
-
+import type { AddNullToValues, Errors, Options, Rule, Rules } from './types'
 
 function useForm<T extends object>(payload: AddNullToValues<T>, rules: Rules) {
-  const payloadData = reactive<AddNullToValues<T>>(structuredClone(payload))
+  const payloadData = reactive<AddNullToValues<T>>(cloneDeep(payload))
   const rulesData: Rules = {}
   const errors = reactive<Errors>({})
   const options: {
@@ -54,7 +52,7 @@ function useForm<T extends object>(payload: AddNullToValues<T>, rules: Rules) {
    * Returns a deep clone of the payload data.
    */
   function getPayload() {
-    return structuredClone(toRaw<T>(payloadData as T))
+    return cloneDeep(toRaw<T>(payloadData as T))
   }
 
   /**
